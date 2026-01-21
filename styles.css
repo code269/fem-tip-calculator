@@ -1,3 +1,135 @@
-h1 {
-  color: red;
+:root {
+  /* Primary colors */
+  --clr-green-400: hsl(172, 67%, 45%);
+
+  /* Neutral colors */
+  --clr-green-900: hsl(183, 100%, 15%);
+  --clr-grey-500: hsl(186, 14%, 43%);
+  --clr-grey-400: hsl(184, 14%, 56%);
+  --clr-grey-200: hsl(185, 41%, 84%);
+  --clr-grey-50: hsl(189, 47%, 97%);
+  --clr-white: hsl(0, 100%, 100%);
+
+  /* Typography */
+  --fs-form-input: 1.5rem;
+
+  /* Spacing */
+  --space-sm: 1em;
+  --space-lg: 2em;
+  --space-xl: 4em;
+
+  /* Borders */
+  --border-radius-curve: 1em;
+}
+
+/* CSS clear start */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  block-size: 100%;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* CSS clear end */
+
+/* Elements */
+body {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  background-color: var(--clr-grey-200);
+}
+
+main,
+output {
+  border-radius: var(--border-radius-curve);
+}
+
+main {
+  padding: var(--space-lg);
+  background-color: var(--clr-white);
+}
+
+output {
+  display: block;
+  padding: var(--space-lg);
+  color: var(--clr-grey-50);
+  background-color: var(--clr-green-900);
+}
+
+fieldset {
+  display: grid;
+  gap: var(--space-sm);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+
+  padding: 0;
+  border: none;
+}
+
+label,
+legend {
+  display: block;
+  margin-block-end: 1em;
+  color: var(--clr-grey-500);
+}
+
+input,
+button {
+  font-size: var(--fs-form-input);
+}
+
+input {
+  padding: var(--space-sm);
+  border: none;
+  inline-size: 100%;
+  background-color: var(--clr-grey-50);
+}
+
+button {
+  padding-block: 0.5em;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--clr-green-900);
+  color: var(--clr-white);
+}
+
+button:hover {
+  background-color: var(--clr-green-400);
+  cursor: pointer;
+}
+
+/* Components */
+.logo {
+  padding: var(--space-xl);
+  margin-inline: auto;
+}
+
+.reset-btn {
+  inline-size: 100%;
+  color: var(--clr-green-900);
+  text-transform: uppercase;
+  background-color: var(--clr-green-400);
+}
+
+.reset-btn:hover {
+  background-color: var(--clr-grey-50);
 }

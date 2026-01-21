@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="icon"
       type="image/png"
@@ -20,18 +24,17 @@
       <img class="logo" src="./images/logo.svg" alt="SPLITTER logo" />
     </header>
     <main>
-      <!-- window -->
-      <form action="">
+      <form class="">
         <label for="">Bill</label>
         <input type="number" />
-        <label for="">Select Tip %</label>
         <fieldset>
-          <input type="button" value="5%" />
-          <input type="button" value="10%" />
-          <input type="button" value="15%" />
-          <input type="button" value="25%" />
-          <input type="button" value="50%" />
-          <input type="number" name="" id="" />
+          <legend>Select Tip %</legend>
+          <button>5%</button>
+          <button>10%</button>
+          <button>15%</button>
+          <button>25%</button>
+          <button>50%</button>
+          <input type="number" placeholder="custom" name="" id="" />
         </fieldset>
         <label for="">Number of People</label>
         <input type="text" />
@@ -51,7 +54,7 @@
           </div>
           <div class="output__amount">32.79</div>
         </div>
-        <button>Reset</button>
+        <button class="reset-btn">Reset</button>
       </output>
     </main>
 
