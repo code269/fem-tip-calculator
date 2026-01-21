@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,9 +16,44 @@
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
   <body>
-    <h1>Heading</h1>
-    <!-- Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip Amount /
-    person Total / person Reset -->
+    <header>
+      <img class="logo" src="./images/logo.svg" alt="SPLITTER logo" />
+    </header>
+    <main>
+      <!-- window -->
+      <form action="">
+        <label for="">Bill</label>
+        <input type="number" />
+        <label for="">Select Tip %</label>
+        <fieldset>
+          <input type="button" value="5%" />
+          <input type="button" value="10%" />
+          <input type="button" value="15%" />
+          <input type="button" value="25%" />
+          <input type="button" value="50%" />
+          <input type="number" name="" id="" />
+        </fieldset>
+        <label for="">Number of People</label>
+        <input type="text" />
+      </form>
+      <output>
+        <div class="output__line">
+          <div class="output__label">
+            <p>Tip Amount</p>
+            <p>/ person</p>
+          </div>
+          <div class="output__amount">4.27</div>
+        </div>
+        <div class="output__line">
+          <div class="output__label">
+            <p>Total</p>
+            <p>/ person</p>
+          </div>
+          <div class="output__amount">32.79</div>
+        </div>
+        <button>Reset</button>
+      </output>
+    </main>
 
     <!-- <div class="attribution">
       Challenge by
