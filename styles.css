@@ -50,6 +50,9 @@ select {
 
 /* Elements */
 body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+
   font-family: 'Space Mono', monospace;
   font-weight: 700;
   font-size: 1.25rem;
@@ -65,8 +68,14 @@ main {
   display: grid;
   gap: var(--space-lg);
 
+  margin: 0 auto;
   padding: var(--space-lg);
+  max-inline-size: 40rem;
   background-color: var(--clr-white);
+
+  @media (max-width: 40rem) {
+    border-radius: 1.25em 1.25em 0 0;
+  }
 }
 
 output {
