@@ -106,6 +106,7 @@ input {
   padding-inline: 0.35em;
   inline-size: 100%;
   text-align: end;
+  color: var(--clr-green-900);
   background-color: var(--clr-grey-50);
 }
 
