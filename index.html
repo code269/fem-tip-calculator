@@ -24,9 +24,11 @@
       <img class="logo" src="./images/logo.svg" alt="SPLITTER logo" />
     </header>
     <main>
-      <form class="">
-        <label for="">Bill</label>
-        <input type="number" />
+      <form class="bill-form">
+        <div class="">
+          <label for="">Bill</label>
+          <input type="number" value="142.55" />
+        </div>
         <fieldset>
           <legend>Select Tip %</legend>
           <button>5%</button>
@@ -34,25 +36,33 @@
           <button>15%</button>
           <button>25%</button>
           <button>50%</button>
-          <input type="number" placeholder="custom" name="" id="" />
+          <input
+            class="fieldset__input"
+            type="number"
+            placeholder="Custom"
+            name=""
+            id=""
+          />
         </fieldset>
-        <label for="">Number of People</label>
-        <input type="text" />
+        <div class="">
+          <label for="">Number of People</label>
+          <input type="number" value="5" />
+        </div>
       </form>
       <output>
         <div class="output__line">
           <div class="output__label">
             <p>Tip Amount</p>
-            <p>/ person</p>
+            <p class="output__label-small">/ person</p>
           </div>
-          <div class="output__amount">4.27</div>
+          <div class="output__amount">$4.27</div>
         </div>
         <div class="output__line">
           <div class="output__label">
             <p>Total</p>
-            <p>/ person</p>
+            <p class="output__label-small">/ person</p>
           </div>
-          <div class="output__amount">32.79</div>
+          <div class="output__amount">$32.79</div>
         </div>
         <button class="reset-btn">Reset</button>
       </output>

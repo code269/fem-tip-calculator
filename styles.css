@@ -11,15 +11,12 @@
   --clr-white: hsl(0, 100%, 100%);
 
   /* Typography */
-  --fs-form-input: 1.5rem;
+  --fs-form-input: 1.75rem;
 
   /* Spacing */
   --space-sm: 1em;
   --space-lg: 2em;
   --space-xl: 4em;
-
-  /* Borders */
-  --border-radius-curve: 1em;
 }
 
 /* CSS clear start */
@@ -55,21 +52,26 @@ select {
 body {
   font-family: 'Space Mono', monospace;
   font-weight: 700;
+  font-size: 1.25rem;
   background-color: var(--clr-grey-200);
 }
 
 main,
 output {
-  border-radius: var(--border-radius-curve);
+  border-radius: 1.25em;
 }
 
 main {
+  display: grid;
+  gap: var(--space-lg);
+
   padding: var(--space-lg);
   background-color: var(--clr-white);
 }
 
 output {
-  display: block;
+  display: grid;
+  gap: var(--space-lg);
   padding: var(--space-lg);
   color: var(--clr-grey-50);
   background-color: var(--clr-green-900);
@@ -78,7 +80,7 @@ output {
 fieldset {
   display: grid;
   gap: var(--space-sm);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
 
   padding: 0;
@@ -88,26 +90,26 @@ fieldset {
 label,
 legend {
   display: block;
-  margin-block-end: 1em;
+  margin-block-end: var(--space-sm);
   color: var(--clr-grey-500);
 }
 
 input,
 button {
+  padding-block: 0.275em;
+  border: none;
+  border-radius: 0.5rem;
   font-size: var(--fs-form-input);
 }
 
 input {
-  padding: var(--space-sm);
-  border: none;
+  padding-inline: 0.35em;
   inline-size: 100%;
+  text-align: end;
   background-color: var(--clr-grey-50);
 }
 
 button {
-  padding-block: 0.5em;
-  border: none;
-  border-radius: 0.5rem;
   background-color: var(--clr-green-900);
   color: var(--clr-white);
 }
@@ -121,6 +123,31 @@ button:hover {
 .logo {
   padding: var(--space-xl);
   margin-inline: auto;
+}
+
+.bill-form {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.fieldset__input {
+  padding-block: 0;
+}
+
+.output__line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output__label-small {
+  font-size: 1rem;
+  color: var(--clr-grey-400);
+}
+
+.output__amount {
+  font-size: var(--fs-form-input);
+  color: var(--clr-green-400);
 }
 
 .reset-btn {
