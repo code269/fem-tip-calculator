@@ -19,14 +19,42 @@ function updateDisplay(bill, tipPercent, people) {
     `);
 }
 
-// Have constant event listeners (?) to update display accordingly to changes in form
+// Form
+const form = document.getElementById('bill-form');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
+
 // Inputs
 const billInput = document.getElementById('bill-input');
 const tipButtons = document.querySelectorAll('.tip-btn');
+const customInput = document.getElementById('custom-input');
 const peopleInput = document.getElementById('people-input');
 
 // Outputs
 const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
-
 const resetBtn = document.getElementById('reset-btn');
+
+// Have constant event listeners (?) to update display accordingly to changes in form
+billInput.addEventListener('input', () => {
+  console.log(`New bill input update: ${billInput.value}`);
+});
+
+tipButtons.forEach((tipBtn) => {
+  tipBtn.addEventListener('click', () => {
+    console.log(tipBtn);
+  });
+});
+
+customInput.addEventListener('click', () => {
+  console.log(`New custom input update: ${customInput.value}`);
+});
+
+peopleInput.addEventListener('input', () => {
+  console.log(`New people input update: ${peopleInput.value}`);
+});
+
+resetBtn.addEventListener('click', () => {
+  console.log('Reset button clicked!');
+});
