@@ -20,3 +20,13 @@ function updateDisplay(bill, tipPercent, people) {
 }
 
 // Have constant event listeners (?) to update display accordingly to changes in form
+// Inputs
+const billInput = document.getElementById('bill-input');
+const tipButtons = document.querySelectorAll('.tip-btn');
+const peopleInput = document.getElementById('people-input');
+
+// Outputs
+const tipOutput = document.getElementById('output-tip');
+const totalOutput = document.getElementById('output-total');
+
+const resetBtn = document.getElementById('reset-btn');
