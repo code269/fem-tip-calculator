@@ -24,29 +24,34 @@
       <img class="logo" src="./images/logo.svg" alt="SPLITTER logo" />
     </header>
     <main>
-      <form class="bill-form">
+      <form id="bill-form" class="bill-form">
         <div class="">
-          <label for="">Bill</label>
-          <input type="number" value="142.55" />
+          <label for="bill-input">Bill</label>
+          <input type="number" value="142.55" id="bill-input" />
         </div>
         <fieldset>
           <legend>Select Tip %</legend>
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>25%</button>
-          <button>50%</button>
+          <button class="tip-btn">5%</button>
+          <button class="tip-btn">10%</button>
+          <button class="tip-btn">15%</button>
+          <button class="tip-btn">25%</button>
+          <button class="tip-btn">50%</button>
           <input
-            class="fieldset__input"
+            class="custom-input"
             type="number"
             placeholder="Custom"
-            name=""
-            id=""
+            name="custom-input"
+            id="custom-input"
           />
         </fieldset>
         <div class="">
-          <label for="">Number of People</label>
-          <input type="number" value="5" />
+          <label for="people-input">Number of People</label>
+          <input
+            type="number"
+            value="5"
+            id="people-input"
+            class="people-input"
+          />
         </div>
       </form>
       <output>
@@ -55,14 +60,14 @@
             <p>Tip Amount</p>
             <p class="output__label-small">/ person</p>
           </div>
-          <div class="output__amount">$4.27</div>
+          <div class="output__amount" id="output-tip">$4.27</div>
         </div>
         <div class="output__line">
           <div class="output__label">
             <p>Total</p>
             <p class="output__label-small">/ person</p>
           </div>
-          <div class="output__amount">$32.79</div>
+          <div class="output__amount" id="output-total">$32.79</div>
         </div>
         <button class="reset-btn">Reset</button>
       </output>
