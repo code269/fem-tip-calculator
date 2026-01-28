@@ -112,7 +112,7 @@ button {
 }
 
 input {
-  padding-inline: 0.35em;
+  padding-inline-end: 0.35em;
   inline-size: 100%;
   text-align: end;
   color: var(--clr-green-900);
@@ -138,6 +138,19 @@ button:hover {
 .bill-form {
   display: grid;
   gap: var(--space-lg);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1em;
+  pointer-events: none;
 }
 
 .btn-active {

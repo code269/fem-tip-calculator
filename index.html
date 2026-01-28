@@ -27,7 +27,14 @@
       <form id="bill-form" class="bill-form">
         <div class="">
           <label for="bill-input">Bill</label>
-          <input type="number" value="142.55" id="bill-input" />
+          <div class="input-wrapper">
+            <img
+              class="input-icon"
+              src="./images/icon-dollar.svg"
+              alt="input-icon dollar"
+            />
+            <input type="number" value="142.55" id="bill-input" />
+          </div>
         </div>
         <fieldset>
           <legend>Select Tip %</legend>
@@ -46,12 +53,19 @@
         </fieldset>
         <div class="">
           <label for="people-input">Number of People</label>
-          <input
-            type="number"
-            value="5"
-            id="people-input"
-            class="people-input"
-          />
+          <div class="input-wrapper">
+            <img
+              class="input-icon"
+              src="./images/icon-person.svg"
+              alt="input-icon dollar"
+            />
+            <input
+              type="number"
+              value="5"
+              id="people-input"
+              class="people-input"
+            />
+          </div>
         </div>
       </form>
       <output>
