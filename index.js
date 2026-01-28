@@ -15,8 +15,8 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
-billInput.addEventListener('input', renderDisplay);
-peopleInput.addEventListener('input', renderDisplay);
+billInput.addEventListener('input', updateDisplay);
+peopleInput.addEventListener('input', updateDisplay);
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
@@ -24,13 +24,13 @@ tipButtons.forEach((tipBtn) => {
     tipBtn.classList.add('btn-active');
     customInput.value = '';
 
-    renderDisplay();
+    updateDisplay();
   });
 });
 
 customInput.addEventListener('input', () => {
   tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
-  renderDisplay();
+  updateDisplay();
 });
 
 resetBtn.addEventListener('click', () => {
@@ -39,7 +39,7 @@ resetBtn.addEventListener('click', () => {
   customInput.value = '';
   tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
 
-  updateDisplay(0, 0);
+  renderDisplay(0, 0);
 });
 
 const getTipAmount = (bill, tipPercent, people) => {
@@ -51,12 +51,11 @@ const getTotalPerPerson = (bill, tipAmount, people) => {
 };
 
 function checkValidInputs(bill, tip, people) {
-  updateDisplay(0, 0);
+  renderDisplay(0, 0);
   return bill && tip && people;
 }
 
-// ! Fn name may be inaccurate, if similar enough to updateDisplay, merge fns
-function renderDisplay() {
+function updateDisplay() {
   const bill = parseFloat(billInput.value);
   const people = parseInt(peopleInput.value);
   const custom = parseFloat(customInput.value);
@@ -73,10 +72,10 @@ function renderDisplay() {
   const tipAmount = getTipAmount(bill, tip, people);
   const tipTotal = getTotalPerPerson(bill, tipAmount, people);
 
-  updateDisplay(tipAmount, tipTotal);
+  renderDisplay(tipAmount, tipTotal);
 }
 
-function updateDisplay(tipAmount, total) {
+function renderDisplay(tipAmount, total) {
   tipOutput.textContent = `$${tipAmount.toFixed(2)}`;
   totalOutput.textContent = `$${total.toFixed(2)}`;
 }
