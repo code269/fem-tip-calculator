@@ -1,5 +1,3 @@
-console.log('Hello world');
-
 const getTipAmount = (bill, tipPercent, people) => {
   return (bill * (tipPercent / 100)) / people;
 };
@@ -7,17 +5,6 @@ const getTipAmount = (bill, tipPercent, people) => {
 const getTotalPerPerson = (bill, tipAmount, people) => {
   return bill / people + tipAmount;
 };
-
-// Expect strings / floats
-function updateDisplay(bill, tipPercent, people) {
-  const tipAmount = getTipAmount(bill, tipPercent, people);
-  const totalPerPerson = getTotalPerPerson(bill, tipAmount, people);
-
-  console.log(`
-        Tip Amount: ${tipAmount}
-        Total: ${totalPerPerson}
-    `);
-}
 
 // Form
 const form = document.getElementById('bill-form');
@@ -36,19 +23,17 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
-// Default values
-
-// Have constant event listeners (?) to update display accordingly to changes in form
 billInput.addEventListener('input', () => {
   console.log(`New bill input update: ${billInput.value}`);
+  renderDisplay();
 });
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
-    // May need some logic to make clicked button the active button
     tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
     tipBtn.classList.add('btn-active');
     customInput.value = '';
+
     console.log(tipBtn);
     renderDisplay();
   });
@@ -77,6 +62,7 @@ resetBtn.addEventListener('click', () => {
 // Return false if any of 3 inputs are zero / empty
 function checkValidInputs(bill, tip, people) {
   console.log(bill, tip, people);
+  updateDisplay(0, 0);
   return bill && tip && people;
 }
 
@@ -100,9 +86,6 @@ function renderDisplay() {
     return;
   }
 
-  // Else, render results
-  // Render getTipAmount
-  // Render getTotalAmount
   const tipAmount = getTipAmount(bill, tip, people);
   const tipTotal = getTotalPerPerson(bill, tipAmount, people);
 
