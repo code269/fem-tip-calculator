@@ -1,12 +1,4 @@
-const getTipAmount = (bill, tipPercent, people) => {
-  return (bill * (tipPercent / 100)) / people;
-};
-
-const getTotalPerPerson = (bill, tipAmount, people) => {
-  return bill / people + tipAmount;
-};
-
-// Prevent submission
+// Prevent default submission
 const form = document.getElementById('bill-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -23,9 +15,8 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
-billInput.addEventListener('input', () => {
-  renderDisplay();
-});
+billInput.addEventListener('input', renderDisplay);
+peopleInput.addEventListener('input', renderDisplay);
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
@@ -42,10 +33,6 @@ customInput.addEventListener('input', () => {
   renderDisplay();
 });
 
-peopleInput.addEventListener('input', () => {
-  renderDisplay();
-});
-
 resetBtn.addEventListener('click', () => {
   billInput.value = '';
   peopleInput.value = '';
@@ -54,6 +41,14 @@ resetBtn.addEventListener('click', () => {
 
   updateDisplay(0, 0);
 });
+
+const getTipAmount = (bill, tipPercent, people) => {
+  return (bill * (tipPercent / 100)) / people;
+};
+
+const getTotalPerPerson = (bill, tipAmount, people) => {
+  return bill / people + tipAmount;
+};
 
 function checkValidInputs(bill, tip, people) {
   updateDisplay(0, 0);
