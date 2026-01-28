@@ -140,6 +140,10 @@ button:hover {
   gap: var(--space-lg);
 }
 
+.btn-active {
+  background-color: var(--clr-green-400);
+}
+
 .fieldset__input {
   padding-block: 0;
 }

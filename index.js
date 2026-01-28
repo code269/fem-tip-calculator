@@ -36,6 +36,8 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
+// Default values
+
 // Have constant event listeners (?) to update display accordingly to changes in form
 billInput.addEventListener('input', () => {
   console.log(`New bill input update: ${billInput.value}`);
@@ -43,18 +45,74 @@ billInput.addEventListener('input', () => {
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
+    // May need some logic to make clicked button the active button
+    tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
+    tipBtn.classList.add('btn-active');
+    customInput.value = '';
     console.log(tipBtn);
+    renderDisplay();
   });
 });
 
-customInput.addEventListener('click', () => {
+customInput.addEventListener('input', () => {
   console.log(`New custom input update: ${customInput.value}`);
+  tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
+  renderDisplay();
 });
 
 peopleInput.addEventListener('input', () => {
   console.log(`New people input update: ${peopleInput.value}`);
+  renderDisplay();
 });
 
 resetBtn.addEventListener('click', () => {
   console.log('Reset button clicked!');
+  // billInput.value = 0;
+  // tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
+  // peopleInput.value = 0;
+
+  // renderDisplay();
 });
+
+// Return false if any of 3 inputs are zero / empty
+function checkValidInputs(bill, tip, people) {
+  console.log(bill, tip, people);
+  return bill && tip && people;
+}
+
+// Math functions
+// Fn name may be inaccurate, if similar enough to updateDisplay, merge fns
+function renderDisplay() {
+  // Grab values from inputs
+  const bill = parseFloat(billInput.value);
+  const people = parseInt(peopleInput.value);
+  const custom = parseFloat(customInput.value);
+
+  const activeBtn = document.querySelector('.btn-active');
+
+  let tip;
+  if (custom) tip = custom;
+  else if (activeBtn) tip = parseInt(activeBtn.textContent);
+  else tip = 0;
+
+  if (!checkValidInputs(bill, tip, people)) {
+    console.log('Invalid input');
+    return;
+  }
+
+  // Else, render results
+  // Render getTipAmount
+  // Render getTotalAmount
+  const tipAmount = getTipAmount(bill, tip, people);
+  const tipTotal = getTotalPerPerson(bill, tipAmount, people);
+
+  updateDisplay(tipAmount, tipTotal);
+}
+
+function updateDisplay(tipAmount, total) {
+  const tipDisplay = document.getElementById('output-tip');
+  const totalDisplay = document.getElementById('output-total');
+
+  tipDisplay.textContent = `$${tipAmount.toFixed(2)}`;
+  totalDisplay.textContent = `$${total.toFixed(2)}`;
+}
