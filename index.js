@@ -47,12 +47,12 @@ peopleInput.addEventListener('input', () => {
 });
 
 resetBtn.addEventListener('click', () => {
-  console.log('Reset button clicked!');
-  // billInput.value = 0;
-  // tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
-  // peopleInput.value = 0;
+  billInput.value = '';
+  peopleInput.value = '';
+  customInput.value = '';
+  tipButtons.forEach((btn) => btn.classList.remove('btn-active'));
 
-  // renderDisplay();
+  updateDisplay(0, 0);
 });
 
 function checkValidInputs(bill, tip, people) {
