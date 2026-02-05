@@ -112,11 +112,17 @@ button {
 }
 
 input {
+  border: 2px solid transparent;
   padding-inline-end: 0.35em;
   inline-size: 100%;
   text-align: end;
   color: var(--clr-green-900);
   background-color: var(--clr-grey-50);
+}
+
+input:focus {
+  border: 2px solid var(--clr-green-400);
+  outline: none;
 }
 
 button {
