@@ -125,7 +125,8 @@ button {
 }
 
 button:hover {
-  background-color: var(--clr-green-400);
+  background-color: var(--clr-grey-200);
+  color: var(--clr-green-900);
   cursor: pointer;
 }
 
@@ -185,5 +186,5 @@ button:hover {
 }
 
 .reset-btn:hover {
-  background-color: var(--clr-grey-50);
+  background-color: var(--clr-grey-200);
 }
