@@ -9,6 +9,7 @@
   --clr-grey-200: hsl(185, 41%, 84%);
   --clr-grey-50: hsl(189, 47%, 97%);
   --clr-white: hsl(0, 100%, 100%);
+  --clr-red-invalid: hsl(20, 100%, 45%);
 
   /* Typography */
   --fs-form-input: 1.75rem;
@@ -147,6 +148,15 @@ button:hover {
   gap: var(--space-lg);
 }
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.error-msg {
+  color: var(--clr-red-invalid);
+}
+
 .input-wrapper {
   display: flex;
   align-items: center;
@@ -158,6 +168,10 @@ button:hover {
   position: absolute;
   left: 1em;
   pointer-events: none;
+}
+
+input.input-invalid {
+  border: 2px solid var(--clr-red-invalid);
 }
 
 .btn-active {
@@ -193,4 +207,8 @@ button:hover {
 
 .reset-btn:hover {
   background-color: var(--clr-grey-200);
+}
+
+.hidden {
+  display: none;
 }

@@ -15,8 +15,22 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
+// Other
+const errorMsg = document.querySelector('.error-msg');
+
 billInput.addEventListener('input', updateDisplay);
-peopleInput.addEventListener('input', updateDisplay);
+
+peopleInput.addEventListener('input', () => {
+  if (peopleInput.value === '0') {
+    errorMsg.classList.remove('hidden');
+    peopleInput.classList.add('input-invalid');
+  } else {
+    errorMsg.classList.add('hidden');
+    peopleInput.classList.remove('input-invalid');
+  }
+
+  updateDisplay();
+});
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
