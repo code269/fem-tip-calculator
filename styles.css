@@ -12,7 +12,7 @@
   --clr-red-invalid: hsl(20, 100%, 45%);
 
   /* Typography */
-  --fs-form-input: 1.75rem;
+  --fs-form-input: 1.5rem;
 
   /* Spacing */
   --space-sm: 1em;
@@ -54,11 +54,12 @@ body {
   font-weight: 700;
   font-size: 1.25rem;
   background-color: var(--clr-grey-200);
-}
 
-main,
-output {
-  border-radius: 1.25em;
+  @media (min-width: 900px) {
+    grid-template-rows: auto auto;
+    place-content: center;
+    margin-block-start: calc(-1 * var(--space-xl));
+  }
 }
 
 main {
@@ -67,19 +68,22 @@ main {
 
   margin: 0 auto;
   padding: var(--space-lg);
-  max-inline-size: 57rem;
+  max-inline-size: 32em;
   background-color: var(--clr-white);
+  border-radius: 1.25em;
 
   @media (max-width: 899px) {
     min-block-size: 100%;
-    max-inline-size: 100%;
     border-radius: 1.25em 1.25em 0 0;
   }
 
   @media (min-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
     min-block-size: auto;
+    max-inline-size: 45em;
     align-self: start;
+
+    padding: 1.5em;
   }
 }
 
@@ -90,40 +94,43 @@ output {
   padding: var(--space-lg);
   color: var(--clr-grey-50);
   background-color: var(--clr-green-900);
+  border-radius: 1em;
 }
 
 fieldset {
   display: grid;
   gap: var(--space-sm);
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
 
   padding: 0;
   border: none;
 
   @media (min-width: 900px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
   }
 }
 
 label,
 legend {
   display: block;
-  margin-block-end: var(--space-sm);
   color: var(--clr-grey-500);
+}
+
+fieldset legend {
+  margin-block-end: var(--space-sm);
+  grid-column: 1 / -1;
 }
 
 input,
 button {
   padding-block: 0.275em;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 0.5rem;
   font-size: var(--fs-form-input);
 }
 
 input {
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   padding-inline-end: 0.35em;
   inline-size: 100%;
   text-align: end;
@@ -151,6 +158,10 @@ button:hover {
 .logo {
   padding: var(--space-xl);
   margin-inline: auto;
+
+  @media (min-width: 900px) {
+    padding-block-start: 0;
+  }
 }
 
 .bill-form {
@@ -195,6 +206,12 @@ input.input-invalid {
 .outputs {
   display: grid;
   gap: var(--space-lg);
+  margin-block-start: var(--space-sm);
+}
+
+.tip-btn {
+  /* padding-inline: 1em; */
+  inline-size: 100%;
 }
 
 .output__line {
