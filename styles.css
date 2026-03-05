@@ -88,15 +88,12 @@ main {
   }
 }
 
-form {
-  padding: 0.5em;
-}
-
 output {
   display: grid;
   align-content: space-between;
   gap: var(--space-lg);
   padding: var(--space-lg);
+  padding-block-start: calc(var(--space-lg) + var(--space-sm));
   color: var(--clr-grey-50);
   background-color: var(--clr-green-900);
   border-radius: 1em;
@@ -175,6 +172,7 @@ button:hover {
 .bill-form {
   display: grid;
   gap: var(--space-lg);
+  padding: 0.5em;
 }
 
 .wrapper {
@@ -208,14 +206,9 @@ input.input-invalid {
   color: var(--clr-green-900);
 }
 
-.fieldset__input {
-  padding-block: 0;
-}
-
 .outputs {
   display: grid;
   gap: var(--space-lg);
-  margin-block-start: var(--space-sm);
 }
 
 .tip-btn {
