@@ -1,5 +1,5 @@
 // Prevent default submission
-const form = document.getElementById('bill-form');
+const form = document.getElementById('bill');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 });
