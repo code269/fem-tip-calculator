@@ -29,16 +29,15 @@ const calculateTotalPerPerson = (bill, tipAmount, people) => {
 billInput.addEventListener('input', updateDisplay);
 
 peopleInput.addEventListener('input', () => {
-  if (peopleInput.value === '0') {
-    errorMsg.classList.remove('hidden');
-    peopleInput.classList.add('input-invalid');
-  } else {
-    errorMsg.classList.add('hidden');
-    peopleInput.classList.remove('input-invalid');
-  }
-
+  validatePeopleInput(peopleInput.value);
   updateDisplay();
 });
+
+function validatePeopleInput(value) {
+  const isInvalid = parseInt(value) === 0;
+  errorMsg.classList.toggle('hidden', !isInvalid);
+  peopleInput.classList.toggle('input-invalid', isInvalid);
+}
 
 tipButtons.forEach((tipBtn) => {
   tipBtn.addEventListener('click', () => {
@@ -64,10 +63,7 @@ resetBtn.addEventListener('click', () => {
   renderDisplay(0, 0);
 });
 
-function isValidInput(bill, tip, people) {
-  renderDisplay(0, 0);
-  return bill && tip && people;
-}
+const isValidInput = (bill, tip, people) => bill && tip && people;
 
 function updateDisplay() {
   const bill = parseFloat(billInput.value);
@@ -81,7 +77,10 @@ function updateDisplay() {
   else if (activeBtn) tip = parseInt(activeBtn.textContent);
   else tip = 0;
 
-  if (!isValidInput(bill, tip, people)) return;
+  if (!isValidInput(bill, tip, people)) {
+    renderDisplay(0, 0);
+    return;
+  }
 
   const tipAmount = calculateTipPerPerson(bill, tip, people);
   const totalPerPerson = calculateTotalPerPerson(bill, tipAmount, people);
