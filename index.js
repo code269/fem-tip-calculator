@@ -18,6 +18,14 @@ const resetBtn = document.getElementById('reset-btn');
 // Validations
 const errorMsg = document.querySelector('.error-msg');
 
+const calculateTipPerPerson = (bill, tipPercent, people) => {
+  return (bill * (tipPercent / 100)) / people;
+};
+
+const calculateTotalPerPerson = (bill, tipAmount, people) => {
+  return bill / people + tipAmount;
+};
+
 billInput.addEventListener('input', updateDisplay);
 
 peopleInput.addEventListener('input', () => {
@@ -55,14 +63,6 @@ resetBtn.addEventListener('click', () => {
 
   renderDisplay(0, 0);
 });
-
-const calculateTipPerPerson = (bill, tipPercent, people) => {
-  return (bill * (tipPercent / 100)) / people;
-};
-
-const calculateTotalPerPerson = (bill, tipAmount, people) => {
-  return bill / people + tipAmount;
-};
 
 function isValidInput(bill, tip, people) {
   renderDisplay(0, 0);
