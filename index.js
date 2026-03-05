@@ -64,7 +64,7 @@ const calculateTotalPerPerson = (bill, tipAmount, people) => {
   return bill / people + tipAmount;
 };
 
-function checkValidInputs(bill, tip, people) {
+function isValidInput(bill, tip, people) {
   renderDisplay(0, 0);
   return bill && tip && people;
 }
@@ -81,7 +81,7 @@ function updateDisplay() {
   else if (activeBtn) tip = parseInt(activeBtn.textContent);
   else tip = 0;
 
-  if (!checkValidInputs(bill, tip, people)) return;
+  if (!isValidInput(bill, tip, people)) return;
 
   const tipAmount = calculateTipPerPerson(bill, tip, people);
   const totalPerPerson = calculateTotalPerPerson(bill, tipAmount, people);
