@@ -15,7 +15,7 @@ const tipOutput = document.getElementById('output-tip');
 const totalOutput = document.getElementById('output-total');
 const resetBtn = document.getElementById('reset-btn');
 
-// Other
+// Validations
 const errorMsg = document.querySelector('.error-msg');
 
 billInput.addEventListener('input', updateDisplay);
@@ -56,11 +56,11 @@ resetBtn.addEventListener('click', () => {
   renderDisplay(0, 0);
 });
 
-const getTipAmount = (bill, tipPercent, people) => {
+const calculateTipPerPerson = (bill, tipPercent, people) => {
   return (bill * (tipPercent / 100)) / people;
 };
 
-const getTotalPerPerson = (bill, tipAmount, people) => {
+const calculateTotalPerPerson = (bill, tipAmount, people) => {
   return bill / people + tipAmount;
 };
 
@@ -83,10 +83,10 @@ function updateDisplay() {
 
   if (!checkValidInputs(bill, tip, people)) return;
 
-  const tipAmount = getTipAmount(bill, tip, people);
-  const tipTotal = getTotalPerPerson(bill, tipAmount, people);
+  const tipAmount = calculateTipPerPerson(bill, tip, people);
+  const totalPerPerson = calculateTotalPerPerson(bill, tipAmount, people);
 
-  renderDisplay(tipAmount, tipTotal);
+  renderDisplay(tipAmount, totalPerPerson);
 }
 
 function renderDisplay(tipAmount, total) {
